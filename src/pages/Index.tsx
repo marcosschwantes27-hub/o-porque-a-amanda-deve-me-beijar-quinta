@@ -167,17 +167,17 @@ const Index = () => {
                 )}
                 
                 {showSpecialMessage && (
-                  <div className="animate-fade-in space-y-2 mt-2">
+                  <div className="animate-fade-in space-y-3 mt-2">
                     <div className="flex justify-center gap-1 mb-2">
-                      <Heart className="w-4 h-4 text-heart fill-heart animate-bounce" />
-                      <Sparkles className="w-4 h-4 text-pastel-yellow animate-pulse" />
-                      <Heart className="w-4 h-4 text-heart fill-heart animate-bounce animation-delay-150" />
+                      <Heart className="w-5 h-5 text-heart fill-heart animate-bounce" />
+                      <Sparkles className="w-5 h-5 text-pastel-yellow animate-pulse" />
+                      <Heart className="w-5 h-5 text-heart fill-heart animate-bounce animation-delay-150" />
                     </div>
-                    <p className="font-handwritten text-lg text-primary leading-relaxed max-w-md">
+                    <p className="font-handwritten text-2xl md:text-3xl text-primary leading-relaxed max-w-2xl">
                       "Se você chegou até aqui, é porque algo especial está acontecendo. 
                       Deixa o coração guiar esse momento... 💕"
                     </p>
-                    <p className="text-xs text-foreground/60 mt-2">
+                    <p className="text-sm text-foreground/60 mt-2">
                       — Com carinho, Marcos
                     </p>
                   </div>
