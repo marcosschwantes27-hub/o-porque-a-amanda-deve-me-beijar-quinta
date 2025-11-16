@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { Heart, Star, Cloud, Sparkles, Lock, Unlock } from "lucide-react";
+import { Heart, Star, Cloud, Sparkles } from "lucide-react";
 import { MazeGame } from "@/components/MazeGame";
 
 const Index = () => {
-  const [hasCompletedMaze, setHasCompletedMaze] = useState(false);
-  const [showSpecialMessage, setShowSpecialMessage] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
 
   return (
     <div className="min-h-screen bg-background font-body dark">
@@ -135,50 +134,31 @@ const Index = () => {
 
           {/* Maze Game */}
           <div className="bg-card rounded-3xl p-8 md:p-12 shadow-xl border-2 border-pastel-pink">
-            <MazeGame onWin={() => setHasCompletedMaze(true)} />
+            <MazeGame />
             
-            {/* Special Reveal Button - Small */}
+            {/* Reveal Button */}
             <div className="mt-8 pt-6 border-t border-border/30 text-center">
               <div className="flex flex-col items-center gap-3">
-                <div className="flex items-center gap-2">
-                  {hasCompletedMaze ? (
-                    <Unlock className="w-5 h-5 text-pastel-yellow animate-pulse" />
-                  ) : (
-                    <Lock className="w-5 h-5 text-muted-foreground" />
-                  )}
-                  <p className="text-lg md:text-xl font-handwritten text-foreground/70">
-                    Uma frase especial
-                  </p>
-                </div>
+                <p className="text-lg md:text-xl font-handwritten text-foreground/70">
+                  Uma frase especial
+                </p>
                 
-                {!hasCompletedMaze && (
-                  <p className="text-foreground/50 text-xs">
-                    🔒 Complete o labirinto para desbloquear
-                  </p>
-                )}
-                
-                {hasCompletedMaze && !showSpecialMessage && (
+                {!showMessage && (
                   <button
-                    onClick={() => setShowSpecialMessage(true)}
-                    className="px-4 py-2 bg-gradient-to-r from-pastel-yellow to-pastel-pink text-foreground text-sm rounded-full font-handwritten hover:scale-105 transition-transform shadow-md"
+                    onClick={() => setShowMessage(true)}
+                    className="px-6 py-3 bg-gradient-to-r from-pastel-yellow to-pastel-pink text-foreground rounded-full font-handwritten text-lg hover:scale-105 transition-transform shadow-md"
                   >
                     Revelar ✨
                   </button>
                 )}
                 
-                {showSpecialMessage && (
+                {showMessage && (
                   <div className="animate-fade-in space-y-3 mt-2">
                     <div className="flex justify-center gap-1 mb-2">
-                      <Heart className="w-5 h-5 text-heart fill-heart animate-bounce" />
-                      <Sparkles className="w-5 h-5 text-pastel-yellow animate-pulse" />
-                      <Heart className="w-5 h-5 text-heart fill-heart animate-bounce animation-delay-150" />
+                      <span className="text-3xl">😅</span>
                     </div>
                     <p className="font-handwritten text-2xl md:text-3xl text-primary leading-relaxed max-w-2xl">
-                      "Se você chegou até aqui, é porque algo especial está acontecendo. 
-                      Deixa o coração guiar esse momento... 💕"
-                    </p>
-                    <p className="text-sm text-foreground/60 mt-2">
-                      — Com carinho, Marcos
+                      Ops, algo deu errado... quem sabe depois de um beijo 💋
                     </p>
                   </div>
                 )}
