@@ -23,7 +23,11 @@ interface Position {
   y: number;
 }
 
-export const MazeGame = () => {
+interface MazeGameProps {
+  onComplete?: () => void;
+}
+
+export const MazeGame = ({ onComplete }: MazeGameProps) => {
   const [amandaPos, setAmandaPos] = useState<Position>({ x: 0, y: 0 });
   const [marcosPos] = useState<Position>({ x: 9, y: 9 });
   const [hasWon, setHasWon] = useState(false);
@@ -32,11 +36,12 @@ export const MazeGame = () => {
   const checkWin = useCallback((pos: Position) => {
     if (pos.x === marcosPos.x && pos.y === marcosPos.y) {
       setHasWon(true);
+      onComplete?.();
       toast.success("💕 Amanda encontrou o Marcos! Hora do beijo! 💋", {
         duration: 5000,
       });
     }
-  }, [marcosPos]);
+  }, [marcosPos, onComplete]);
 
   const moveAmanda = useCallback((dx: number, dy: number) => {
     if (hasWon) return;
