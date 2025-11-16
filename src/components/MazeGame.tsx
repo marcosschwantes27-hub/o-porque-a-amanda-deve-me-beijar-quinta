@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { Heart, Sparkles } from "lucide-react";
+import { Heart, Sparkles, ArrowUp, ArrowDown, ArrowLeft, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 
 const MAZE_SIZE = 10;
@@ -106,7 +106,7 @@ export const MazeGame = () => {
           Ajude Amanda a encontrar o Marcos! 💕
         </h3>
         <p className="text-foreground/80">
-          Use as setas do teclado (↑ ↓ ← →) para mover Amanda pelo labirinto
+          Use as setas do teclado ou os botões abaixo para mover Amanda
         </p>
         <div className="flex items-center justify-center gap-4 text-sm">
           <div className="flex items-center gap-2">
@@ -175,6 +175,40 @@ export const MazeGame = () => {
               );
             })
           )}
+        </div>
+      </div>
+
+      {/* Mobile Controls */}
+      <div className="mt-8 flex flex-col items-center gap-2">
+        <button
+          onClick={() => moveAmanda(0, -1)}
+          disabled={hasWon}
+          className="p-4 bg-primary hover:bg-primary/80 text-white rounded-lg shadow-lg active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
+        >
+          <ArrowUp className="w-6 h-6" />
+        </button>
+        <div className="flex gap-2">
+          <button
+            onClick={() => moveAmanda(-1, 0)}
+            disabled={hasWon}
+            className="p-4 bg-primary hover:bg-primary/80 text-white rounded-lg shadow-lg active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
+          >
+            <ArrowLeft className="w-6 h-6" />
+          </button>
+          <button
+            onClick={() => moveAmanda(0, 1)}
+            disabled={hasWon}
+            className="p-4 bg-primary hover:bg-primary/80 text-white rounded-lg shadow-lg active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
+          >
+            <ArrowDown className="w-6 h-6" />
+          </button>
+          <button
+            onClick={() => moveAmanda(1, 0)}
+            disabled={hasWon}
+            className="p-4 bg-primary hover:bg-primary/80 text-white rounded-lg shadow-lg active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
+          >
+            <ArrowRight className="w-6 h-6" />
+          </button>
         </div>
       </div>
 
