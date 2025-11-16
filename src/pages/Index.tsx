@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Heart, Star, Cloud, Sparkles } from "lucide-react";
 import { MazeGame } from "@/components/MazeGame";
+import couplePhoto from "@/assets/couple-photo.jpeg";
 
 const Index = () => {
   const [showMessage, setShowMessage] = useState(false);
@@ -42,6 +43,22 @@ const Index = () => {
               não é precipitação... é conexão, é química, é deixar o coração falar mais alto 
               que a razão. É ser autêntico e verdadeiro com o que você está sentindo.
             </p>
+          </div>
+
+          {/* Photo Card */}
+          <div className="bg-card rounded-3xl p-6 md:p-8 shadow-xl border-2 border-pastel-pink animate-fade-in">
+            <div className="relative overflow-hidden rounded-2xl">
+              <img 
+                src={couplePhoto} 
+                alt="Amanda e Marcos" 
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+                <p className="font-handwritten text-2xl md:text-3xl text-white text-center">
+                  Amanda & Marcos 💕
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Reasons Grid */}
