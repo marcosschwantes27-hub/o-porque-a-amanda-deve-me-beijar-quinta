@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Heart, Star, Cloud, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 import { MazeGame } from "@/components/MazeGame";
 import couplePhoto from "@/assets/couple-photo.jpeg";
 
@@ -195,12 +196,12 @@ const Index = () => {
 
           {/* Footer */}
           <div className="text-center pb-12 space-y-6">
-            <button
-              onClick={() => window.location.href = '/mensagem'}
-              className="px-8 py-4 bg-gradient-to-r from-heart to-primary text-white rounded-full font-handwritten text-2xl hover:scale-105 transition-transform shadow-lg animate-pulse"
+            <Link
+              to="/mensagem"
+              className="inline-block px-8 py-4 bg-gradient-to-r from-heart to-primary text-white rounded-full font-handwritten text-2xl hover:scale-105 transition-transform shadow-lg animate-pulse"
             >
               tenho algo pra te dizer... 💕
-            </button>
+            </Link>
             <p className="text-sm text-foreground/60 max-w-md mx-auto">
               Feito com muito carinho 💕
             </p>
